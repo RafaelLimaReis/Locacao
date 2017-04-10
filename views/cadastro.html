@@ -1,0 +1,63 @@
+<div class="container">
+  <menu-fixo></menu-fixo>
+  <br>
+  <div class="container-fluid" data-ng-init="ConsultaTipo()">
+    <h3 class="page-header">Registro de Usuarios</h3>
+    <form name="Usuario" ng-submit="NovoUsuario()">
+      <p ng-show="mensagem.length" class="alert alert-success text-center">
+        {{mensagem}}
+      </p>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label>Nome</label>
+          <input type="text" class="form-control" ng-model="usuario.nome" required autofocus>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+      <div class="row">
+          <label>Email</label>
+          <input type="email" class="form-control" ng-model="usuario.email" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>Nome de Usuario</label>
+          <input type="text" class="form-control" ng-model="usuario.username" required ng-blur="verifica(usuario.username)">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Telefone</label>
+          <input type="text" name="telefone" class="form-control" ng-model="usuario.telefone" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Lote</label>
+          <input type="number" class="form-control" ng-model="usuario.lote" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Numero</label>
+          <input type="number" class="form-control" ng-model="usuario.numero" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Tipo</label>
+          <select class="form-control" required ng-model="usuario.tipo">
+            <option value=""> -- Selecione o tipo --</option>
+            <option ng-repeat="tipo in tipos" value="{{tipo.id_tipo}}">{{tipo.nome}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Senha</label>
+          <input type="password" class="form-control" ng-model="usuario.senha" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Confirmar senha</label>
+          <input type="password" class="form-control">
+        </div>
+      </div>
+        <button type="submit" class="btn btn-info" ng-disabled="Usuario.$invalid">Salvar</button>
+        <a href="/home" class="btn btn-default">Cancelar</a>
+      </form>
+  </div>
+</div>

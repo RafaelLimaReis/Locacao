@@ -1,0 +1,39 @@
+<!--Menu-->
+<div class="container">
+<menu-fixo></menu-fixo>
+<br>
+<div>
+  <div class="container-fluid">
+    <h3 class="page-header">Registro de Áreas</h3>
+    <form name="Area" ng-submit="NovaArea()">
+      <p ng-show="mensagem.length" class="alert alert-success text-center">
+        {{mensagem}}
+      </p>
+      <div class="row">
+        <div class="form-group col-md-12" >
+          <label>Nome</label>
+          <input type="text" class="form-control" ng-model="area.nome" name="nome" required autofocus>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label>Descrição</label>
+          <textarea class="form-control" rows="5" ng-model="area.descricao" name="descricao"  required></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Lote</label>
+          <input type="number" class="form-control" ng-model="area.lote" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Numero</label>
+          <input type="number" class="form-control" ng-model="area.numero" required>
+        </div>
+      </div>
+        <button type="submit" class="btn btn-info" ng-disabled="Area.$invalid">Salvar</button>
+        <a href="/home" class="btn btn-default">Cancelar</a>
+    </form>
+  </div>
+</div>
+</div>

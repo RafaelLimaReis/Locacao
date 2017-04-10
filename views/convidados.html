@@ -1,0 +1,38 @@
+<br>
+<div class="container" data-ng-init="id()">
+  <div class="row">
+    <div class="form group col-md-2">
+      <select class="form-control" ng-model="convidado.id_reserva">
+        <option selected ng-repeat="reserva in id_reservas" value="{{reserva.id_reserva}}">{{reserva.id_reserva}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" placeholder="Insira o nome do convidado" ng-model="convidado.nome_convidado">
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" placeholder="Insira o cpf do convidado" ng-model="convidado.cpf_convidado">
+    </div>
+    <button type="submit" class="btn btn-info" ng-click="add_convidado()">Adicionar Convidado</button>
+  </div>
+  <p ng-show="mensagem.length" class="alert alert-info text-center">
+    {{mensagem}}
+  </p>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+      </tr>
+      <tr dir-paginate="convidado in convidados | itemsPerPage:10">
+        <td>{{convidado.nome}}</td>
+        <td>{{convidado.cpf}}</td>
+        <td>
+          <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ng-click="RemoveConvidado(convidado.id_convidado)"></span></a>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+  <a href="/horarios" class="btn btn-success">Finalizar Reserva</a>
+  <a href="/horarios" class="btn btn-danger" ng-click="RemoveHorario(convidado.id_reserva)">Cancelar Reserva</a>
+</div>

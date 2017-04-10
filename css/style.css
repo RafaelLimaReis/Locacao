@@ -1,0 +1,41 @@
+
+
+/* Importação letra googleFonts*/
+
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+
+.date-form { margin: 10px; }
+label.control-label span { cursor: pointer; }
+/*Alteração titulo */
+
+.head {
+    /*font-family: 'Yatra One', cursive;
+*/}
+
+
+/*Fundo Principal */
+
+.fundo {
+    background-image: url(../img/fundo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*Posicionamento Texto corpo*/
+
+.espaco {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+
+/*Posicionamento de grid*/
+
+.form-login {
+    max-width: 380px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}

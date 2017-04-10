@@ -1,0 +1,87 @@
+
+<!--Menu-->
+<div class="container">
+  <menu-fixo></menu-fixo>
+<!--Fim-->
+<br>
+<div data-ng-init="ConsultaHorarios()">
+  <div class="container-fluid">
+    <h3 class="page-header">Registro de Horarios</h3>
+
+    <form name="Horario">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <select class="form-control" ng-model="cadastro.usuario" required>
+            <option value=""> -- Selecione o Usuario --</option>
+            <option ng-repeat="usuario in usuarios" value="{{usuario.id_usuario}}">{{usuario.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <select class="form-control" ng-model="cadastro.area" required>
+            <option value=""> -- Selecione a Área --</option>
+            <option ng-repeat="area in area" value="{{area.id_area}}">{{area.nome}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="form-group col-md-4">
+          <input type="date"ng-model="cadastro.data_reserva" class="form-control" ng-blur="buscaData()"/>
+        </div>
+        <div class="form-group col-md-4">
+          <select class="form-control" ng-model="cadastro.inicio" required>
+            <option value=""> -- Selecione o horario de inicio --</option>
+            <option ng-repeat="horario in horarios" value="{{horario.id_horario}}">{{horario.horario}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <select class="form-control" ng-model="cadastro.fim" required>
+            <option value=""> -- Selecione o horario de termino --</option>
+            <option ng-repeat="horario in horarios" value="{{horario.id_horario}}">{{horario.horario}}</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info" ng-click="NovoHorario()">Reservar</button>
+      <a href="/home" class="btn btn-default">Cancelar</a>
+    </form>
+
+    <hr>
+    <h3>Horarios Agendados</h3>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <input type="text" placeholder="Insira o campo a ser pesquisado" class="form-control input-sm" ng-model="nome">
+      </div>
+    </div>
+    <hr>
+    <p ng-show="mensagem.length" class="alert alert-info text-center">
+      {{mensagem}}
+    </p>
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Area</th>
+          <th>Data Reservada</th>
+          <th>Horario de Inicio</th>
+          <th>Horario de Término</th>
+        </tr>
+        <tr dir-paginate="reserva in reservas | filter:nome| itemsPerPage:10">
+          <td>{{reserva.id_reserva}}</td>
+          <td>{{reserva.nome_usuario}}</td>
+          <td>{{reserva.nome}}</td>
+          <td>{{reserva.data_reserva | date: 'dd/MM/yyyy'}}</td>
+          <td>{{reserva.horario_inicio}}</td>
+          <td>{{reserva.horario}}</td>
+          <td>
+            <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ng-click="RemoveHorario(reserva.id_reserva)"></span></a>
+            <a href="/visualizaConvidados/{{reserva.id_reserva}}" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></a>
+          </td>
+        </tr>
+      </thead>
+    </table>
+    <dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+
+  </div>
+</div>
+</div>

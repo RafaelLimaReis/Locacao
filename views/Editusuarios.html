@@ -1,0 +1,47 @@
+<!--Menu-->
+<div class="container">
+  <menu-fixo></menu-fixo>
+<!--Fim-->
+<br>
+<br>
+<br>
+<div data-ng-init="ConsultaUsuario()">
+  <h5>Pesquisar usuario</h5>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <input type="text" placeholder="Digite o nome desejado" class="form-control input-sm" ng-model="nome">
+    </div>
+  </div>
+  <hr>
+  <p ng-show="mensagem.length" class="alert alert-info text-center">
+    {{mensagem}}
+  </p>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Tipo</th>
+        <th>Lote</th>
+        <th>Nº</th>
+      </tr>
+      <tr dir-paginate="usuario in usuarios | filter:nome| itemsPerPage:10">
+        <td>{{usuario.id_usuario}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.username}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.telefone}}</td>
+        <td>{{usuario.nome_tipo}}</td>
+        <td>{{usuario.lote}}</td>
+        <td>{{usuario.numero}}</td>
+        <td>
+          <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ng-click="RemoveUsuario(usuario.id_usuario)"></span></a>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+</div>

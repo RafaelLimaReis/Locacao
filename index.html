@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Locações</title>
+    <!--Bibliotecas-->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/paginate/paginate.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width">
+    <!--Fim-->
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--App-->
+    <script src="App.js"></script>
+    <!--Fim-->
+
+    <!--Controllers-->
+    <script src="controllers/LoginCtrl.js"></script>
+    <script src="controllers/AreaCtrl.js"></script>
+    <script src="controllers/UsuarioCtrl.js"></script>
+    <script src="controllers/HorariosCtrl.js"></script>
+    <script src="controllers/DadosCtrl.js"></script>
+
+    <script src="directives/DirectivasFixas.js"></script>
+
+    <!--Base-->
+    <base href="/"/>
+
+  </head>
+
+
+  <body class="fundo">
+  <div ng-app="App">
+
+    <div ng-view>
+    </div>
+  </div>
+</body>
+</html>

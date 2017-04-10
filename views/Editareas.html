@@ -1,0 +1,41 @@
+<!--Menu-->
+<div class="container">
+  <menu-fixo></menu-fixo>
+<!--Fim-->
+<br>
+<br>
+<br>
+<div data-ng-init="ConsultaArea()">
+  <h5>Pesquisar Areas</h5>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <input type="text" placeholder="Digite a area desejado" class="form-control input-sm" ng-model="nome">
+    </div>
+  </div>
+  <hr>
+  <p ng-show="mensagem.length" class="alert alert-info text-center">
+    {{mensagem}}
+  </p>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Lote</th>
+        <th>Nº</th>
+      </tr>
+      <tr dir-paginate="area in areas | filter:nome | itemsPerPage:10">
+        <td>{{area.id_area}}</td>
+        <td>{{area.nome}}</td>
+        <td>{{area.descricao}}</td>
+        <td>{{area.lote}}</td>
+        <td>{{area.numero}}</td>
+        <td>
+          <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ng-click="RemoveArea(area.id_area)"></span></a>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+</div>

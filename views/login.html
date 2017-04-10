@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="../css/style.css">
+
+  <div class="fundo">
+    <div ng-controller="LoginCtrl">
+      <div class="container-fluid">
+        <br><br><br><br>
+        <!-- Caixa Preta -->
+        <div class="pos">
+          <form class="form-login" name="Logar" ng-submit="Login()">
+            <!--Alinhando texto -->
+            <h2 class="head" style="color:white;text-align:center">Locações </h2>
+            <hr><!--Risco na tela -->
+            <!-- Nome de usuario -->
+            <p ng-show="mensagem.length" class="alert alert-danger">
+            	{{mensagem}}
+            </p>
+            <div class="form-group">
+              <input ng-model="login.username" type="text" class="form-control" placeholder="Usuario" required autofocus>
+            </div>
+            <!-- Senha -->
+            <div class="form-group">
+              <input ng-model="login.senha" type="password" class="form-control" placeholder="Senha" required>
+            </div>
+            <div class="btn-group col-md-offset-5">
+              <button type="submit" class="btn btn-info" ng-disabled="Logar.$invalid">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

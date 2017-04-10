@@ -1,0 +1,29 @@
+<br><br><br><br><br>
+<div class="container">
+  <menu-fixo></menu-fixo>
+  <!--Fim-->
+  <br>
+  <div ng-controller="DadosCtrl" data-ng-init="ConsultaDados()">
+    <div ng-repeat="dado in dados">
+      <div class="row">
+        <h4><b>Usuario: </b> {{dado.nome}}</h4>
+        <h4><b>Area reservada: </b>{{dado.nome_area}}</h4>
+        <h4><b>Data da Reserva:</b> {{dado.data_reserva}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b>Hora inicio:</b>{{dado.inicio}}&emsp;&emsp; <b>Hora Fim:</b>{{dado.horario}}</h4>
+      </div>
+      <div class="row">
+        <table class="table table-striped">
+          <thead class="thead-inverse">
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+            </tr>
+            <tr ng-repeat="dadoC in dadosC">
+              <td>{{dadoC.convidado}}</td>
+              <td>{{dadoC.cpf}}</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

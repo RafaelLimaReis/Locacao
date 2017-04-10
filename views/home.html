@@ -1,0 +1,37 @@
+<!--Menu-->
+<div class="container">
+  <menu-fixo></menu-fixo>
+<!--Fim-->
+<br>
+<div class="container-fluid">
+  <h3 class="page-header">Horarios de hoje</h3>
+  <div data-ng-init="ConsultaHorariosAtual()">
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Area</th>
+          <th>Data Reservada</th>
+          <th>Horario de Inicio</th>
+          <th>Horario de Término</th>
+        </tr>
+        <tr dir-paginate="reserva in reservasAtual | filter:nome| itemsPerPage:10">
+          <td>{{reserva.id_reserva}}</td>
+          <td>{{reserva.nome_usuario}}</td>
+          <td>{{reserva.nome}}</td>
+          <td>{{reserva.data_reserva | date: 'dd/MM/yyyy'}}</td>
+          <td>{{reserva.horario_inicio}}</td>
+          <td>{{reserva.horario}}</td>
+          <td>
+            <a href="/visualizaConvidados/{{reserva.id_reserva}}" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></a>
+          </td>
+        </tr>
+      </thead>
+    </table>
+    <p ng-show="mensagem.length" class="alert alert-warning text-center">
+      {{mensagem}}
+    </p>
+    <dir-pagination-controls max-size="10" boundary-links="true"></dir-pagination-controls>
+  </div>
+</div>
